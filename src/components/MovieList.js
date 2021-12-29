@@ -8,7 +8,10 @@ const MovieList = () => {
         return <Loader/>
     }
     if(movies.length < 1){
-        return <h3 className='no-movie no-movie-title'>No Movies Match Your Search Criteria !</h3>
+        return (<div className="movie-container">
+            <h3 className='no-movie no-movie-title'>No Movies Match Your Search Criteria !</h3>
+        </div>
+        )
     }
     return (
         <div className='movie-container'>
