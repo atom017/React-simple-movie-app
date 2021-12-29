@@ -5,7 +5,7 @@ const API_KEY = '0dbb1632da921e4bc6c1e4b3d1287a6b';
 const youtubeURL = 'https://www.youtube.com/watch?v=';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const watch = 'https://api.themoviedb.org/3/movie/{movie_id}/watch/providers?api_key=0dbb1632da921e4bc6c1e4b3d1287a6b'
-const MovieModal = ({modalShow,handleModal,title,overview,id,poster_path,genre_ids}) => {
+const MovieModal = ({modalShow,handleModal,title,name,overview,id,poster_path,genre_ids}) => {
   
     const showHide = modalShow ? 'show-modal' : 'hide-modal';
 
@@ -52,14 +52,14 @@ const MovieModal = ({modalShow,handleModal,title,overview,id,poster_path,genre_i
                     <img src={IMG_URL+poster_path} alt={title} />
                    </div>
                     <div className="overview-info">
-                    <h3>{title}</h3>
+                    {title === undefined?<h3>{name}</h3>: <h3>{title}</h3>}
                         <p className='modal-overview-p'>genres: {genre_ids.map((gid,index) =>{
                             let key = Object.keys(Genres).find(k=>Genres[k]===gid);
                             if(key){return <span key={index}>{key}</span>}
                             
                         })}</p>
                     <div className="overview-container">
-                       
+                        
                         <h4>Overview</h4>
                         <p>{overview}</p>
                         <button className="btn" onClick={onWatch}>watch trailer</button>

@@ -1,3 +1,10 @@
+<h1 align="center">Simple Movie App </h1>
+<h3>
+    <a href="https://movie-appv2.netlify.app/">
+      Demo
+    </a>
+</h3>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
