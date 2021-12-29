@@ -13,10 +13,7 @@ body{
 }
 
 .no-movie{
-  position:absolute;
-  left:50%;
-  bottom:50%;
-  transform: translate(-50%,-50%);
+ margin:2rem;
 }
 
 .no-movie-title{
