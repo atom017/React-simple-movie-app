@@ -1,7 +1,7 @@
 import React from 'react'
 import { Genres } from '../Data/Genres';
 
-const API_KEY = '0dbb1632da921e4bc6c1e4b3d1287a6b';
+const API_KEY = process.env.REACT_APP_API_KEY;
 const youtubeURL = 'https://www.youtube.com/watch?v=';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const watch = 'https://api.themoviedb.org/3/movie/{movie_id}/watch/providers?api_key=0dbb1632da921e4bc6c1e4b3d1287a6b'
@@ -12,7 +12,7 @@ const MovieModal = ({modalShow,handleModal,title,name,overview,id,poster_path,ge
     const onWatch = async () =>{
        
         try {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`);
+            const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}&append_to_response=videos`);
             const movies_arr = await response.json();
             const videos = movies_arr.videos.results;
             let videoID = '';

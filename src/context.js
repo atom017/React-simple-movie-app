@@ -2,7 +2,9 @@ import React,{useState,useEffect,useContext} from 'react'
 import { useCallback } from 'react';
 import { Genres } from './Data/Genres';
 
-const API_KEY = '0dbb1632da921e4bc6c1e4b3d1287a6b';
+
+const API_KEY = process.env.REACT_APP_API_KEY;
+console.log(API_KEY);
 const query_all = `https://api.themoviedb.org/3/trending/all/day?api_key=${API_KEY}`;
 const query_search = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&query=`;
 const query_genre = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&page=1&with_genres=`;
@@ -19,8 +21,7 @@ const AppProvider = ({children}) => {
           const movies_arr = await response.json();
           setLoading(false);
           setMovies(movies_arr.results);
-          console.log(movies_arr.results);
-          
+         
         } catch (error) {
           setLoading(false);
           console.log(error)
